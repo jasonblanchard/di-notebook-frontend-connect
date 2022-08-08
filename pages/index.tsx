@@ -20,7 +20,7 @@ export default function() {
 }
 
 function Page() {
-    const getEntryResponse = useGetEntry({ id: "123" });
+    const getEntryResponse = useGetEntry({ id: 123 });
     const listEntriesResponse = useListEntries({ pageSize: 100 });
 
     return (

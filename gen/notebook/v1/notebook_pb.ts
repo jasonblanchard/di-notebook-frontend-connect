@@ -11,9 +11,9 @@ import {Message, proto3, Timestamp} from "@bufbuild/protobuf";
  */
 export class Entry extends Message<Entry> {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: int32 id = 1;
    */
-  id = "";
+  id = 0;
 
   /**
    * @generated from field: string text = 2;
@@ -48,7 +48,7 @@ export class Entry extends Message<Entry> {
   static readonly runtime = proto3;
   static readonly typeName = "notebook.v1.Entry";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
     { no: 2, name: "text", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "creator_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "created_at", kind: "message", T: Timestamp },
@@ -78,9 +78,9 @@ export class Entry extends Message<Entry> {
  */
 export class GetEntryRequest extends Message<GetEntryRequest> {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: int32 id = 1;
    */
-  id = "";
+  id = 0;
 
   constructor(data?: PartialMessage<GetEntryRequest>) {
     super();
@@ -90,7 +90,7 @@ export class GetEntryRequest extends Message<GetEntryRequest> {
   static readonly runtime = proto3;
   static readonly typeName = "notebook.v1.GetEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetEntryRequest {
@@ -226,9 +226,9 @@ export class CreateEntryResponse extends Message<CreateEntryResponse> {
  */
 export class UpdateEntryRequest extends Message<UpdateEntryRequest> {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: int32 id = 1;
    */
-  id = "";
+  id = 0;
 
   /**
    * @generated from field: string text = 2;
@@ -243,7 +243,7 @@ export class UpdateEntryRequest extends Message<UpdateEntryRequest> {
   static readonly runtime = proto3;
   static readonly typeName = "notebook.v1.UpdateEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
     { no: 2, name: "text", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
@@ -404,9 +404,9 @@ export class ListEntriesResponse extends Message<ListEntriesResponse> {
  */
 export class DeleteEntryRequest extends Message<DeleteEntryRequest> {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: int32 id = 1;
    */
-  id = "";
+  id = 0;
 
   constructor(data?: PartialMessage<DeleteEntryRequest>) {
     super();
@@ -416,7 +416,7 @@ export class DeleteEntryRequest extends Message<DeleteEntryRequest> {
   static readonly runtime = proto3;
   static readonly typeName = "notebook.v1.DeleteEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteEntryRequest {
@@ -478,9 +478,9 @@ export class DeleteEntryResponse extends Message<DeleteEntryResponse> {
  */
 export class UndeleteEntryRequest extends Message<UndeleteEntryRequest> {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: int32 id = 1;
    */
-  id = "";
+  id = 0;
 
   constructor(data?: PartialMessage<UndeleteEntryRequest>) {
     super();
@@ -490,7 +490,7 @@ export class UndeleteEntryRequest extends Message<UndeleteEntryRequest> {
   static readonly runtime = proto3;
   static readonly typeName = "notebook.v1.UndeleteEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UndeleteEntryRequest {
