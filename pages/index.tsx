@@ -20,22 +20,22 @@ export default function() {
 }
 
 function Page() {
-    const getEntryResponse = useGetEntry({ id: 123 });
+    // const getEntryResponse = useGetEntry({ id: 123 });
     const listEntriesResponse = useListEntries({ pageSize: 100 });
 
     return (
         <div>
             Chello
-            <div>
+            {/* <div>
                 Single entry:
                 {getEntryResponse.isSuccess && getEntryResponse.data.entry.text}
-            </div>
+            </div> */}
             <div>
                 List of entries:
                 <ul>
                     {listEntriesResponse.isSuccess && listEntriesResponse.data.entries.map(entry => {
                         return (
-                            <li key={entry.id}>{entry.text}</li>
+                            <li key={entry.id}>{entry.id}: {entry.text}</li>
                         )
                     })}
                 </ul>

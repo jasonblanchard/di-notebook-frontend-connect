@@ -4,7 +4,7 @@
 /* @ts-nocheck */
 
 import type {BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage} from "@bufbuild/protobuf";
-import {Message, proto3, Timestamp} from "@bufbuild/protobuf";
+import {BoolValue, Int32Value, Message, proto3, Timestamp} from "@bufbuild/protobuf";
 
 /**
  * @generated from message notebook.v1.Entry
@@ -74,157 +74,157 @@ export class Entry extends Message<Entry> {
 }
 
 /**
- * @generated from message notebook.v1.GetEntryRequest
+ * @generated from message notebook.v1.ReadAuthorEntryRequest
  */
-export class GetEntryRequest extends Message<GetEntryRequest> {
+export class ReadAuthorEntryRequest extends Message<ReadAuthorEntryRequest> {
   /**
    * @generated from field: int32 id = 1;
    */
   id = 0;
 
-  constructor(data?: PartialMessage<GetEntryRequest>) {
+  constructor(data?: PartialMessage<ReadAuthorEntryRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "notebook.v1.GetEntryRequest";
+  static readonly typeName = "notebook.v1.ReadAuthorEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetEntryRequest {
-    return new GetEntryRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ReadAuthorEntryRequest {
+    return new ReadAuthorEntryRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetEntryRequest {
-    return new GetEntryRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ReadAuthorEntryRequest {
+    return new ReadAuthorEntryRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetEntryRequest {
-    return new GetEntryRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ReadAuthorEntryRequest {
+    return new ReadAuthorEntryRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: GetEntryRequest | PlainMessage<GetEntryRequest> | undefined, b: GetEntryRequest | PlainMessage<GetEntryRequest> | undefined): boolean {
-    return proto3.util.equals(GetEntryRequest, a, b);
+  static equals(a: ReadAuthorEntryRequest | PlainMessage<ReadAuthorEntryRequest> | undefined, b: ReadAuthorEntryRequest | PlainMessage<ReadAuthorEntryRequest> | undefined): boolean {
+    return proto3.util.equals(ReadAuthorEntryRequest, a, b);
   }
 }
 
 /**
- * @generated from message notebook.v1.GetEntryResponse
+ * @generated from message notebook.v1.ReadAuthorEntryResponse
  */
-export class GetEntryResponse extends Message<GetEntryResponse> {
+export class ReadAuthorEntryResponse extends Message<ReadAuthorEntryResponse> {
   /**
    * @generated from field: notebook.v1.Entry entry = 1;
    */
   entry?: Entry;
 
-  constructor(data?: PartialMessage<GetEntryResponse>) {
+  constructor(data?: PartialMessage<ReadAuthorEntryResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "notebook.v1.GetEntryResponse";
+  static readonly typeName = "notebook.v1.ReadAuthorEntryResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "entry", kind: "message", T: Entry },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetEntryResponse {
-    return new GetEntryResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ReadAuthorEntryResponse {
+    return new ReadAuthorEntryResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetEntryResponse {
-    return new GetEntryResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ReadAuthorEntryResponse {
+    return new ReadAuthorEntryResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetEntryResponse {
-    return new GetEntryResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ReadAuthorEntryResponse {
+    return new ReadAuthorEntryResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: GetEntryResponse | PlainMessage<GetEntryResponse> | undefined, b: GetEntryResponse | PlainMessage<GetEntryResponse> | undefined): boolean {
-    return proto3.util.equals(GetEntryResponse, a, b);
+  static equals(a: ReadAuthorEntryResponse | PlainMessage<ReadAuthorEntryResponse> | undefined, b: ReadAuthorEntryResponse | PlainMessage<ReadAuthorEntryResponse> | undefined): boolean {
+    return proto3.util.equals(ReadAuthorEntryResponse, a, b);
   }
 }
 
 /**
- * @generated from message notebook.v1.CreateEntryRequest
+ * @generated from message notebook.v1.BeginNewEntryRequest
  */
-export class CreateEntryRequest extends Message<CreateEntryRequest> {
+export class BeginNewEntryRequest extends Message<BeginNewEntryRequest> {
   /**
    * @generated from field: string text = 1;
    */
   text = "";
 
-  constructor(data?: PartialMessage<CreateEntryRequest>) {
+  constructor(data?: PartialMessage<BeginNewEntryRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "notebook.v1.CreateEntryRequest";
+  static readonly typeName = "notebook.v1.BeginNewEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "text", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateEntryRequest {
-    return new CreateEntryRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BeginNewEntryRequest {
+    return new BeginNewEntryRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CreateEntryRequest {
-    return new CreateEntryRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): BeginNewEntryRequest {
+    return new BeginNewEntryRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CreateEntryRequest {
-    return new CreateEntryRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): BeginNewEntryRequest {
+    return new BeginNewEntryRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: CreateEntryRequest | PlainMessage<CreateEntryRequest> | undefined, b: CreateEntryRequest | PlainMessage<CreateEntryRequest> | undefined): boolean {
-    return proto3.util.equals(CreateEntryRequest, a, b);
+  static equals(a: BeginNewEntryRequest | PlainMessage<BeginNewEntryRequest> | undefined, b: BeginNewEntryRequest | PlainMessage<BeginNewEntryRequest> | undefined): boolean {
+    return proto3.util.equals(BeginNewEntryRequest, a, b);
   }
 }
 
 /**
- * @generated from message notebook.v1.CreateEntryResponse
+ * @generated from message notebook.v1.BeginNewEntryResponse
  */
-export class CreateEntryResponse extends Message<CreateEntryResponse> {
+export class BeginNewEntryResponse extends Message<BeginNewEntryResponse> {
   /**
    * @generated from field: notebook.v1.Entry entry = 1;
    */
   entry?: Entry;
 
-  constructor(data?: PartialMessage<CreateEntryResponse>) {
+  constructor(data?: PartialMessage<BeginNewEntryResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "notebook.v1.CreateEntryResponse";
+  static readonly typeName = "notebook.v1.BeginNewEntryResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "entry", kind: "message", T: Entry },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateEntryResponse {
-    return new CreateEntryResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BeginNewEntryResponse {
+    return new BeginNewEntryResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CreateEntryResponse {
-    return new CreateEntryResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): BeginNewEntryResponse {
+    return new BeginNewEntryResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CreateEntryResponse {
-    return new CreateEntryResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): BeginNewEntryResponse {
+    return new BeginNewEntryResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: CreateEntryResponse | PlainMessage<CreateEntryResponse> | undefined, b: CreateEntryResponse | PlainMessage<CreateEntryResponse> | undefined): boolean {
-    return proto3.util.equals(CreateEntryResponse, a, b);
+  static equals(a: BeginNewEntryResponse | PlainMessage<BeginNewEntryResponse> | undefined, b: BeginNewEntryResponse | PlainMessage<BeginNewEntryResponse> | undefined): boolean {
+    return proto3.util.equals(BeginNewEntryResponse, a, b);
   }
 }
 
 /**
- * @generated from message notebook.v1.UpdateEntryRequest
+ * @generated from message notebook.v1.WriteToEntryRequest
  */
-export class UpdateEntryRequest extends Message<UpdateEntryRequest> {
+export class WriteToEntryRequest extends Message<WriteToEntryRequest> {
   /**
    * @generated from field: int32 id = 1;
    */
@@ -235,69 +235,69 @@ export class UpdateEntryRequest extends Message<UpdateEntryRequest> {
    */
   text = "";
 
-  constructor(data?: PartialMessage<UpdateEntryRequest>) {
+  constructor(data?: PartialMessage<WriteToEntryRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "notebook.v1.UpdateEntryRequest";
+  static readonly typeName = "notebook.v1.WriteToEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
     { no: 2, name: "text", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateEntryRequest {
-    return new UpdateEntryRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): WriteToEntryRequest {
+    return new WriteToEntryRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateEntryRequest {
-    return new UpdateEntryRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): WriteToEntryRequest {
+    return new WriteToEntryRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateEntryRequest {
-    return new UpdateEntryRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): WriteToEntryRequest {
+    return new WriteToEntryRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: UpdateEntryRequest | PlainMessage<UpdateEntryRequest> | undefined, b: UpdateEntryRequest | PlainMessage<UpdateEntryRequest> | undefined): boolean {
-    return proto3.util.equals(UpdateEntryRequest, a, b);
+  static equals(a: WriteToEntryRequest | PlainMessage<WriteToEntryRequest> | undefined, b: WriteToEntryRequest | PlainMessage<WriteToEntryRequest> | undefined): boolean {
+    return proto3.util.equals(WriteToEntryRequest, a, b);
   }
 }
 
 /**
- * @generated from message notebook.v1.UpdateEntryResponse
+ * @generated from message notebook.v1.WriteToEntryResponse
  */
-export class UpdateEntryResponse extends Message<UpdateEntryResponse> {
+export class WriteToEntryResponse extends Message<WriteToEntryResponse> {
   /**
    * @generated from field: notebook.v1.Entry entry = 1;
    */
   entry?: Entry;
 
-  constructor(data?: PartialMessage<UpdateEntryResponse>) {
+  constructor(data?: PartialMessage<WriteToEntryResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "notebook.v1.UpdateEntryResponse";
+  static readonly typeName = "notebook.v1.WriteToEntryResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "entry", kind: "message", T: Entry },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateEntryResponse {
-    return new UpdateEntryResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): WriteToEntryResponse {
+    return new WriteToEntryResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateEntryResponse {
-    return new UpdateEntryResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): WriteToEntryResponse {
+    return new WriteToEntryResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateEntryResponse {
-    return new UpdateEntryResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): WriteToEntryResponse {
+    return new WriteToEntryResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: UpdateEntryResponse | PlainMessage<UpdateEntryResponse> | undefined, b: UpdateEntryResponse | PlainMessage<UpdateEntryResponse> | undefined): boolean {
-    return proto3.util.equals(UpdateEntryResponse, a, b);
+  static equals(a: WriteToEntryResponse | PlainMessage<WriteToEntryResponse> | undefined, b: WriteToEntryResponse | PlainMessage<WriteToEntryResponse> | undefined): boolean {
+    return proto3.util.equals(WriteToEntryResponse, a, b);
   }
 }
 
@@ -311,9 +311,9 @@ export class ListEntriesRequest extends Message<ListEntriesRequest> {
   pageSize = 0;
 
   /**
-   * @generated from field: string page_token = 2;
+   * @generated from field: int32 page_token = 2;
    */
-  pageToken = "";
+  pageToken = 0;
 
   constructor(data?: PartialMessage<ListEntriesRequest>) {
     super();
@@ -324,7 +324,7 @@ export class ListEntriesRequest extends Message<ListEntriesRequest> {
   static readonly typeName = "notebook.v1.ListEntriesRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "page_size", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
-    { no: 2, name: "page_token", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "page_token", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListEntriesRequest {
@@ -354,9 +354,9 @@ export class ListEntriesResponse extends Message<ListEntriesResponse> {
   entries: Entry[] = [];
 
   /**
-   * @generated from field: string next_page_token = 2;
+   * @generated from field: google.protobuf.Int32Value next_page_token = 2;
    */
-  nextPageToken = "";
+  nextPageToken?: number;
 
   /**
    * @generated from field: int32 total_size = 3;
@@ -364,9 +364,9 @@ export class ListEntriesResponse extends Message<ListEntriesResponse> {
   totalSize = 0;
 
   /**
-   * @generated from field: bool has_next_page = 4;
+   * @generated from field: google.protobuf.BoolValue has_next_page = 4;
    */
-  hasNextPage = false;
+  hasNextPage?: boolean;
 
   constructor(data?: PartialMessage<ListEntriesResponse>) {
     super();
@@ -377,9 +377,9 @@ export class ListEntriesResponse extends Message<ListEntriesResponse> {
   static readonly typeName = "notebook.v1.ListEntriesResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "entries", kind: "message", T: Entry, repeated: true },
-    { no: 2, name: "next_page_token", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "next_page_token", kind: "message", T: Int32Value },
     { no: 3, name: "total_size", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
-    { no: 4, name: "has_next_page", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 4, name: "has_next_page", kind: "message", T: BoolValue },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListEntriesResponse {
@@ -474,76 +474,76 @@ export class DeleteEntryResponse extends Message<DeleteEntryResponse> {
 }
 
 /**
- * @generated from message notebook.v1.UndeleteEntryRequest
+ * @generated from message notebook.v1.UnDeleteEntryRequest
  */
-export class UndeleteEntryRequest extends Message<UndeleteEntryRequest> {
+export class UnDeleteEntryRequest extends Message<UnDeleteEntryRequest> {
   /**
    * @generated from field: int32 id = 1;
    */
   id = 0;
 
-  constructor(data?: PartialMessage<UndeleteEntryRequest>) {
+  constructor(data?: PartialMessage<UnDeleteEntryRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "notebook.v1.UndeleteEntryRequest";
+  static readonly typeName = "notebook.v1.UnDeleteEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UndeleteEntryRequest {
-    return new UndeleteEntryRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UnDeleteEntryRequest {
+    return new UnDeleteEntryRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UndeleteEntryRequest {
-    return new UndeleteEntryRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UnDeleteEntryRequest {
+    return new UnDeleteEntryRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UndeleteEntryRequest {
-    return new UndeleteEntryRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UnDeleteEntryRequest {
+    return new UnDeleteEntryRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: UndeleteEntryRequest | PlainMessage<UndeleteEntryRequest> | undefined, b: UndeleteEntryRequest | PlainMessage<UndeleteEntryRequest> | undefined): boolean {
-    return proto3.util.equals(UndeleteEntryRequest, a, b);
+  static equals(a: UnDeleteEntryRequest | PlainMessage<UnDeleteEntryRequest> | undefined, b: UnDeleteEntryRequest | PlainMessage<UnDeleteEntryRequest> | undefined): boolean {
+    return proto3.util.equals(UnDeleteEntryRequest, a, b);
   }
 }
 
 /**
- * @generated from message notebook.v1.UndeleteEntryResponse
+ * @generated from message notebook.v1.UnDeleteEntryResponse
  */
-export class UndeleteEntryResponse extends Message<UndeleteEntryResponse> {
+export class UnDeleteEntryResponse extends Message<UnDeleteEntryResponse> {
   /**
    * @generated from field: notebook.v1.Entry entry = 1;
    */
   entry?: Entry;
 
-  constructor(data?: PartialMessage<UndeleteEntryResponse>) {
+  constructor(data?: PartialMessage<UnDeleteEntryResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "notebook.v1.UndeleteEntryResponse";
+  static readonly typeName = "notebook.v1.UnDeleteEntryResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "entry", kind: "message", T: Entry },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UndeleteEntryResponse {
-    return new UndeleteEntryResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UnDeleteEntryResponse {
+    return new UnDeleteEntryResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UndeleteEntryResponse {
-    return new UndeleteEntryResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UnDeleteEntryResponse {
+    return new UnDeleteEntryResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UndeleteEntryResponse {
-    return new UndeleteEntryResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UnDeleteEntryResponse {
+    return new UnDeleteEntryResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: UndeleteEntryResponse | PlainMessage<UndeleteEntryResponse> | undefined, b: UndeleteEntryResponse | PlainMessage<UndeleteEntryResponse> | undefined): boolean {
-    return proto3.util.equals(UndeleteEntryResponse, a, b);
+  static equals(a: UnDeleteEntryResponse | PlainMessage<UnDeleteEntryResponse> | undefined, b: UnDeleteEntryResponse | PlainMessage<UnDeleteEntryResponse> | undefined): boolean {
+    return proto3.util.equals(UnDeleteEntryResponse, a, b);
   }
 }
 

@@ -1,21 +1,41 @@
-import { useState } from 'react';
-import TextareaAutosize from 'react-textarea-autosize';
+import { useState, useEffect, useMemo } from 'react';
+import debounce from 'lodash.debounce';
+import { useRouter } from "next/router";
+
+import useGetEntry from "queries/useGetEntry";
+import useWriteToEntry from 'queries/useWriteToEntry';
 
 export default function EntryEditor() {
-    const [text, setText] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
+    const router = useRouter();
+    const { id } = router.query;
+    const { data, isSuccess } = useGetEntry({ id: parseInt(id as string, 10) });
+    const writeToEntry = useWriteToEntry();
 
-    // return (
-    //     <div className="bg-neutral-100 border border-neutral-200 rounded lg:max-w-3xl mx-auto my-8 p-4 min-h-[90%] shadow text-neutral-700 leading-relaxed focus:outline-primary-400 focus:outline-2 focus:outline" contentEditable suppressContentEditableWarning>
-    //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    //     </div>
-    // )
+    const [text, setText] = useState('');
+
+    useEffect(() => {
+        if (isSuccess) {
+            setText(data?.entry?.text);
+        }
+    }, [data, isSuccess]);
+
+    const debouncedChangeHandler = useMemo(() => {
+        return debounce((text) => {
+            writeToEntry.mutate({ id: parseInt(id as string, 10), text });
+        }, 1000, { maxWait: 10000 });
+    }, [id]);
+
+    function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+        setText(event.target.value);
+        debouncedChangeHandler(event.target.value);
+    }
 
     return (
         <div className="lg:max-w-3xl mx-auto min-h-[90%] relative my-8">
             <textarea
                 className="w-full absolute top-0 bottom-0 bg-neutral-100 border resize-none border-neutral-200 rounded-0 p-4 shadow text-neutral-700 leading-relaxed border-none focus:ring-2 focus:ring-primary-400"
-                // value={text}
-                // onChange={event => setText(event.target.value)}
+                value={text}
+                onChange={handleChange}
             />
         </div>
     )

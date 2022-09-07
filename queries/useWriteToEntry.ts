@@ -1,22 +1,18 @@
 import { useContext } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 
 import { ConnectServiceProviderContext } from './ConnectServiceProvider';
 
-export default function useGetEntry({ id }: { id?: number }) {
+export default function useWriteToEntry() {
     const client = useContext(ConnectServiceProviderContext);
     
     let token = '';
     if (global.window) {
         token = localStorage.getItem('idToken');
     }
-
-    return useQuery(["GetQuery", id], () => client.readAuthorEntry({ id }, {
+    return useMutation<any, any, { text: string, id: number }>(["writeToEntry"], ({ text, id }) => client.writeToEntry({ id, text }, {
         headers: {
             Authorization: `Bearer ${token}`,
-        },
-    }), {
-        enabled: !!id,
-        refetchOnWindowFocus: false,
-    });
+        }
+    }));
 }

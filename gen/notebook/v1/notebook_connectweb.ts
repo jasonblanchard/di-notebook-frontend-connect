@@ -3,7 +3,7 @@
 /* eslint-disable */
 /* @ts-nocheck */
 
-import {GetEntryRequest, GetEntryResponse, ListEntriesRequest, ListEntriesResponse} from "./notebook_pb";
+import {BeginNewEntryRequest, BeginNewEntryResponse, DeleteEntryRequest, DeleteEntryResponse, ListEntriesRequest, ListEntriesResponse, ReadAuthorEntryRequest, ReadAuthorEntryResponse, UnDeleteEntryRequest, UnDeleteEntryResponse, WriteToEntryRequest, WriteToEntryResponse} from "./notebook_pb";
 import {MethodKind} from "@bufbuild/protobuf";
 
 /**
@@ -13,12 +13,30 @@ export const NotebookService = {
   typeName: "notebook.v1.NotebookService",
   methods: {
     /**
-     * @generated from rpc notebook.v1.NotebookService.GetEntry
+     * @generated from rpc notebook.v1.NotebookService.ReadAuthorEntry
      */
-    getEntry: {
-      name: "GetEntry",
-      I: GetEntryRequest,
-      O: GetEntryResponse,
+    readAuthorEntry: {
+      name: "ReadAuthorEntry",
+      I: ReadAuthorEntryRequest,
+      O: ReadAuthorEntryResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc notebook.v1.NotebookService.BeginNewEntry
+     */
+    beginNewEntry: {
+      name: "BeginNewEntry",
+      I: BeginNewEntryRequest,
+      O: BeginNewEntryResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc notebook.v1.NotebookService.WriteToEntry
+     */
+    writeToEntry: {
+      name: "WriteToEntry",
+      I: WriteToEntryRequest,
+      O: WriteToEntryResponse,
       kind: MethodKind.Unary,
     },
     /**
@@ -28,6 +46,24 @@ export const NotebookService = {
       name: "ListEntries",
       I: ListEntriesRequest,
       O: ListEntriesResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc notebook.v1.NotebookService.DeleteEntry
+     */
+    deleteEntry: {
+      name: "DeleteEntry",
+      I: DeleteEntryRequest,
+      O: DeleteEntryResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc notebook.v1.NotebookService.UndeleteEntry
+     */
+    undeleteEntry: {
+      name: "UndeleteEntry",
+      I: UnDeleteEntryRequest,
+      O: UnDeleteEntryResponse,
       kind: MethodKind.Unary,
     },
   }
