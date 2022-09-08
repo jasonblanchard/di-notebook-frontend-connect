@@ -18,6 +18,7 @@ export default function useWriteToEntry() {
     }), {
         onSuccess: () => {
             queryClient.invalidateQueries(['ListEntries']);
+            queryClient.invalidateQueries(['GetQuery']);
         }
     });
 }

@@ -4,6 +4,8 @@ import React from 'react';
 import { ChevronLeftIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
 import useBeginNewEntry from 'queries/useBeginNewEntry';
 import { useRouter } from 'next/router';
+import Modal, { ModalTitle } from 'components/Modal';
+import { button } from 'styles/classnames';
 
 interface SidebarLayoutProps {
     children: React.ReactNode
@@ -14,6 +16,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const beginNewEntry = useBeginNewEntry();
     const router = useRouter();
+    const [isKeyboardShortcutsModalOpen, setIsKeyboardShortcutsModalOpen] = useState(false);
 
     function toggleCollapsed() {
         setIsCollapsed(isCollapsed => {
@@ -42,8 +45,8 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
         <div className="h-screen overflow-hidden bg-neutral-50">
             <div className="h-2 bg-gradient-to-r to-primary-600 from-primary-300 absolute w-full top-0 z-10" />
             <div className="flex h-full">
-                <div className={`${isCollapsed ? 'w-0' : 'w-40'} transition-all duration-100 border-r bg-neutral-600 relative`}>
-                    <div className="flex flex-col justify-center align-middle absolute py-2 w-8 bg-neutral-600 -right-8 top-3 text-neutral-300 rounded-r-sm">
+                <div className={`${isCollapsed ? 'w-0' : 'w-52'} transition-all duration-100 border-r bg-neutral-600 relative`}>
+                    <div className="flex flex-col justify-center align-middle absolute py-2 w-8 bg-neutral-600 -right-8 top-6 text-neutral-300 rounded-r-sm">
                         <button onClick={toggleCollapsed} className="flex align-middle justify-center py-2 hover:bg-neutral-700">
                             <span className="sr-only">collapse sidebar</span>
                             <ChevronLeftIcon className={`h-6 w-6 ${isCollapsed ? 'rotate-180' : ''} transition-transform`} />
@@ -52,7 +55,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
                             <span className="sr-only">new entry</span>
                             <PlusCircleIcon className="h-6 w-6" />
                         </button>
-                        <button className="flex align-middle justify-center py-2 hover:bg-neutral-700">
+                        <button className="flex align-middle justify-center py-2 hover:bg-neutral-700" onClick={() => setIsKeyboardShortcutsModalOpen(true)}>
                             <span className="sr-only">keyboard shortcuts</span>
                             ⌘   
                         </button>
@@ -67,6 +70,17 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
                     {children}
                 </div>
             </div>
+            <Modal isOpen={isKeyboardShortcutsModalOpen} onRequestClose={() => setIsKeyboardShortcutsModalOpen(false)}>
+                <ModalTitle as="h2" className="text-m text-neutral-600">Keyboard Shortcuts</ModalTitle>
+                <div className="py-6">
+                    <div className="flex justify-between items-center mb-4">
+                        <code className="text-sm bg-neutral-200 p-1">command + /</code> toggle sidebar
+                    </div>
+                </div>
+                <div className="flex justify-end">
+                    <button className={button.primary} onClick={() => setIsKeyboardShortcutsModalOpen(false)}>Got it</button>
+                </div>
+            </Modal>
         </div>
     )
 }

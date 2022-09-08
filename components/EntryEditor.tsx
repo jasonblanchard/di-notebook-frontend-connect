@@ -31,12 +31,28 @@ export default function EntryEditor() {
     }
 
     return (
-        <div className="lg:max-w-3xl mx-auto min-h-[90%] relative my-8">
-            <textarea
-                className="w-full absolute top-0 bottom-0 bg-neutral-100 border resize-none border-neutral-200 rounded-0 p-4 shadow text-neutral-700 leading-relaxed border-none focus:ring-2 focus:ring-primary-400"
-                value={text}
-                onChange={handleChange}
-            />
+        <div className="flex py-12 h-full flex-col lg:max-w-3xl mx-auto">
+            <div className="flex mb-2 justify-between text-sm text-neutral-400">
+                <div>
+                    {!writeToEntry.isError && (
+                        writeToEntry.isLoading ? 
+                            <div className="flex items-center"><div className="rounded-full bg-yellow-400 h-3 w-3 mr-1" />Saving...</div>
+                            : <div className="flex items-center"><div className="rounded-full bg-green-400 h-3 w-3 mr-1" />Saved</div>
+                        )
+                    }
+                    {writeToEntry.isError && <div className="flex items-center"><div className="rounded-full bg-red-400 h-3 w-3 mr-1" />Error</div>}
+                </div>
+                <div>
+                    {`${data?.entry?.createdAt?.toDate().toLocaleString()}${data?.entry?.updatedAt ? ` • ${data?.entry?.updatedAt.toDate().toLocaleString()}` : ""}`}
+                </div>
+            </div>
+            <div className="w-full flex-1 relative">
+                <textarea
+                    className="w-full absolute top-0 bottom-0 bg-neutral-100 border resize-none border-neutral-200 rounded-0 p-4 shadow text-neutral-700 leading-relaxed border-none focus:ring-2 focus:ring-primary-400"
+                    value={text}
+                    onChange={handleChange}
+                />
+            </div>
         </div>
     )
 }
