@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import useListEntries from 'queries/useListEntries';
 import React from 'react';
+import { button } from 'styles/classnames';
 
 export default function EntryListNav() {
     const { data, hasNextPage, isSuccess, fetchNextPage } = useListEntries({ pageSize: 25 });
@@ -30,7 +31,11 @@ export default function EntryListNav() {
                         })}
                     </>
                 )}
-                {hasNextPage && <button onClick={() => fetchNextPage() }>more</button>}
+                {hasNextPage && (
+                    <div className="flex justify-center mt-2 mb-10">
+                        <button className={button.secondary} onClick={() => fetchNextPage() }>more</button>
+                    </div>
+                )}
             </div>
         </>
     )

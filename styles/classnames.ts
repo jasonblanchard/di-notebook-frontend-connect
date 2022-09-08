@@ -1,7 +1,7 @@
 export const button = {
     primary: 'text-sm bg-primary-500 hover:bg-primary-600 text-neutral-50 py-2 px-4 rounded shadow-sm',
     secondary: 'text-sm bg-neutral-200 hover:bg-neutral-300 text-neutral-600 py-2 px-4 rounded shadow-sm',
-    teriary: 'py-1 px-2 text-sm hover:text-neutral-500 text-neutral-700',
+    tertiary: 'py-1 px-2 text-sm hover:text-neutral-500 text-neutral-700',
 }
 
 export const toast = {

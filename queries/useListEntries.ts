@@ -3,7 +3,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { ConnectServiceProviderContext } from './ConnectServiceProvider';
 
-export default function useListEntries({ pageSize }: { pageSize: number, pageParam?: number }) {
+export default function useListEntries({ pageSize }: { pageSize: number }) {
     const client = useContext(ConnectServiceProviderContext);
     
     let token = '';
