@@ -77,7 +77,7 @@ export default function DesignSystemPage() {
                         <button className={button.secondary}>Secondary</button>
                     </div>
                     <div className="mb-2">
-                        <button className={button.teriary}>Tertiary</button>
+                        <button className={button.tertiary}>Tertiary</button>
                     </div>
                 </div>
                 <div>
