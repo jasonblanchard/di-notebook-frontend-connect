@@ -1,19 +1,23 @@
 import { useContext } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { ConnectServiceProviderContext } from './ConnectServiceProvider';
 
-export default function useListEntries({ pageSize }: { pageSize: number }) {
+export default function useListEntries({ pageSize }: { pageSize: number, pageParam?: number }) {
     const client = useContext(ConnectServiceProviderContext);
     
     let token = '';
     if (global.window) {
         token = localStorage.getItem('idToken');
     }
-
-    return useQuery(["ListEntries"], () => client.listEntries({ pageSize }, {
+    
+    return useInfiniteQuery(["ListEntries"], ({ pageParam }) => client.listEntries({ pageSize, pageToken: pageParam }, {
         headers: {
             Authorization: `Bearer ${token}`,
         }
-    }));
+    }), {
+        getNextPageParam: (lastPage, pages) => {
+            return lastPage.nextPageToken;
+        },
+    });
 }

@@ -1,10 +1,11 @@
 import { useContext } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { ConnectServiceProviderContext } from './ConnectServiceProvider';
 
 export default function useWriteToEntry() {
     const client = useContext(ConnectServiceProviderContext);
+    const queryClient = useQueryClient();
     
     let token = '';
     if (global.window) {
@@ -14,5 +15,9 @@ export default function useWriteToEntry() {
         headers: {
             Authorization: `Bearer ${token}`,
         }
-    }));
+    }), {
+        onSuccess: () => {
+            queryClient.invalidateQueries(['ListEntries']);
+        }
+    });
 }

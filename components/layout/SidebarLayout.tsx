@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
 import React from 'react';
 import { ChevronLeftIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
+import useBeginNewEntry from 'queries/useBeginNewEntry';
+import { useRouter } from 'next/router';
 
 interface SidebarLayoutProps {
     children: React.ReactNode
@@ -10,6 +12,8 @@ interface SidebarLayoutProps {
 
 export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const beginNewEntry = useBeginNewEntry();
+    const router = useRouter();
 
     function toggleCollapsed() {
         setIsCollapsed(isCollapsed => {
@@ -18,6 +22,12 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
             return result
         })
     }
+
+    useEffect(() => {
+        if (beginNewEntry.isSuccess) {
+            router.push(`/workspace/${beginNewEntry.data.entry.id}`)
+        }
+    }, [beginNewEntry.isSuccess, beginNewEntry.data]);
 
     useEffect(() => {
         const cachedIsCollapsed = localStorage.getItem('di-SidebarLayour-isCollapsed');
@@ -38,7 +48,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
                             <span className="sr-only">collapse sidebar</span>
                             <ChevronLeftIcon className={`h-6 w-6 ${isCollapsed ? 'rotate-180' : ''} transition-transform`} />
                         </button>
-                        <button className="flex align-middle justify-center py-2 hover:bg-neutral-700">
+                        <button className="flex align-middle justify-center py-2 hover:bg-neutral-700" onClick={() => beginNewEntry.mutate({ text: '' })}>
                             <span className="sr-only">new entry</span>
                             <PlusCircleIcon className="h-6 w-6" />
                         </button>
@@ -48,7 +58,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
                         </button>
                     </div>
                     {!isCollapsed && (
-                        <nav className="text-sm text-neutral-300">
+                        <nav className="text-sm text-neutral-300 overflow-scroll h-full">
                             {nav}
                         </nav>
                     )}
