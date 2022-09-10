@@ -28,6 +28,7 @@ export default function EntryListNav() {
                                 </React.Fragment>
                             )
                         })}
+                        {data.pages[0].entries?.length === 0 && <div className="block px-2 py-2 bg-neutral-600">No entries yet</div>}
                     </>
                 )}
                 {hasNextPage && (
