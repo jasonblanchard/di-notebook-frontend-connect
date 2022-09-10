@@ -9,6 +9,7 @@ import useWriteToEntry from 'queries/useWriteToEntry';
 import Modal, { ModalTitle } from './Modal';
 import useDeleteEntry from 'queries/useDeleteEntry';
 import useUndeleteEntry from 'queries/useUndeleteEntry';
+import Loading from 'components/Loading';
 
 export default function EntryEditor() {
     const router = useRouter();
@@ -78,10 +79,10 @@ export default function EntryEditor() {
 
     if (isLoading) {
         return (
-            <div className="flex py-12 h-full flex-col items-center lg:max-w-3xl mx-auto">
-                Loading...
+            <div className="flex justify-center mt-12">
+                <Loading />
             </div>
-        );
+        )
     }
 
     return (
