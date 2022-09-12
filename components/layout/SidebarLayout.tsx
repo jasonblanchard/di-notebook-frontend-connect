@@ -71,7 +71,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
                         </Link>
                     </div>
                     {!isCollapsed && (
-                        <nav className="text-sm text-neutral-300 overflow-scroll h-full">
+                        <nav className="text-neutral-300 overflow-scroll h-full">
                             {nav}
                         </nav>
                     )}

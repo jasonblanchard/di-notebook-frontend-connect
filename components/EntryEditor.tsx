@@ -104,7 +104,7 @@ export default function EntryEditor() {
             <div className="w-full flex-1 relative">
                 <textarea
                     autoFocus
-                    className="w-full absolute top-0 bottom-0 bg-neutral-100 border resize-none border-neutral-200 rounded-0 p-4 shadow text-neutral-700 leading-relaxed border-none focus:ring-2 focus:ring-primary-400 placeholder:text-neutral-300"
+                    className="w-full text-lg absolute top-0 bottom-0 bg-neutral-100 border resize-none border-neutral-200 rounded-0 p-4 shadow text-neutral-700 leading-relaxed border-none focus:ring-2 focus:ring-primary-400 placeholder:text-neutral-300"
                     value={text}
                     onChange={handleChange}
                 />
