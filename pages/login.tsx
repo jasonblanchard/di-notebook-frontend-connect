@@ -8,12 +8,6 @@ declare global {
     interface Window { google: any; }
 }
 
-export async function getServerSideProps() {
-    return {
-        props: {}
-    }
-}
-
 export default function LoginPage() {
     const router = useRouter();
 

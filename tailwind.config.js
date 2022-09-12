@@ -9,7 +9,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Montserrat'],
+      sans: ['Atkinson Hyperlegible'],
     },
     extend: {
       colors: {

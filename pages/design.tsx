@@ -2,7 +2,7 @@ import { button, toast } from 'styles/classnames';
 
 export default function DesignSystemPage() {
     return (
-        <div className="bg-neutral-50 min-h-screen">
+        <div className="bg-neutral-50 h-screen overflow-scroll">
             <div className="h-2 bg-gradient-to-r from-primary-600 to-primary-400" />
             <div className="container mx-auto max-w-4xl p-2">
                 <h1 className="text-3xl font-bold text-neutral-600">Design System</h1>

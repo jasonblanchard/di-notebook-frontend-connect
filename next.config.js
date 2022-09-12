@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+
+    // basePath: '/Users/jason/projects/di-notebook-frontend-connect/out',
+    assetPrefix: process.env.ASSET_PREFIX,
     
     async rewrites() {
         return [

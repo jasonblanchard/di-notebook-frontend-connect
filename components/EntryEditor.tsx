@@ -58,7 +58,7 @@ export default function EntryEditor() {
                     <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-neutral-200 sm:mx-0 sm:h-10 sm:w-10">
                         <TrashIcon className="h-6 w-6 text-neutral-600" aria-hidden="true" />
                     </div>
-                    <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left text-neutral-700">
                         The entry has been deleted
                     </div>
                 </div>
