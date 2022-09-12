@@ -1,7 +1,8 @@
 export const button = {
-    primary: 'bg-primary-500 hover:bg-primary-600 text-neutral-50 py-2 px-4 rounded shadow-sm',
-    secondary: 'bg-neutral-200 hover:bg-neutral-300 text-neutral-600 py-2 px-4 rounded shadow-sm',
-    tertiary: 'py-1 px-2 hover:text-neutral-500 text-neutral-700',
+    primary: 'bg-primary-500 hover:bg-primary-600 border text-neutral-50 py-2 px-4 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2',
+    secondary: 'bg-neutral-100 hover:bg-neutral-300 border border-neutral-200 text-neutral-600 py-2 px-4 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2',
+    tertiary: 'py-1 px-2 hover:text-neutral-500 text-neutral-700 rounded focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2',
+    danger: 'bg-danger-red-600 hover:bg-danger-red-700 border text-neutral-50 py-2 px-4 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-danger-red-600 focus:ring-offset-2',
 }
 
 export const toast = {
