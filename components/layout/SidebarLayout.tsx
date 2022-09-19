@@ -46,25 +46,25 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
     useHotkeys('Meta+Escape', () => router.push('/workspace'));
     
     return (
-        <div className="h-screen overflow-hidden bg-neutral-50">
+        <div className="h-screen sm:overflow-hidden bg-neutral-50">
             <div className="h-2 bg-gradient-to-r to-primary-600 from-primary-300 absolute w-full top-0 z-10 transition-all" />
-            <div className="flex h-full">
-                <div className={`${isCollapsed ? 'w-0' : 'w-52'} transition-all border-r bg-neutral-600 relative`}>
-                    <div className="flex flex-col justify-center align-middle absolute py-2 w-8 bg-neutral-600 -right-8 top-6 text-neutral-300 rounded-r-sm">
-                        <button onClick={toggleCollapsed} className="flex align-middle justify-center py-2 hover:bg-neutral-700">
+            <div className="flex flex-col-reverse sm:flex-row h-full">
+                <div className={`${isCollapsed ? 'sm:w-0 max-h-14' : 'sm:w-60 max-h-60'} sm:max-h-full transition-all border-r bg-neutral-600 relative`}>
+                    <div className="flex sm:flex-col justify-around sm:absolute py-2 sm:w-8 bg-neutral-600 -right-8 top-6 text-neutral-300 sm:rounded-r-sm">
+                        <button onClick={toggleCollapsed} className="flex align-middle justify-center py-2 px-2 sm:px-0 hover:bg-neutral-700">
                             <span className="sr-only">collapse sidebar</span>
-                            <ChevronLeftIcon className={`h-6 w-6 ${isCollapsed ? 'rotate-180' : ''} transition-transform duration-500`} />
+                            <ChevronLeftIcon className={`h-6 w-6 ${isCollapsed ? 'rotate-90 sm:rotate-180' : '-rotate-90 sm:rotate-0'} transition-transform duration-500`} />
                         </button>
-                        <button className="flex align-middle justify-center py-2 hover:bg-neutral-700" onClick={() => beginNewEntry.mutate({ text: '' })}>
+                        <button className="flex align-middle justify-center py-2 px-2 sm:px-0 hover:bg-neutral-700" onClick={() => beginNewEntry.mutate({ text: '' })}>
                             <span className="sr-only">new entry</span>
                             <PlusCircleIcon className="h-6 w-6" />
                         </button>
-                        <button className="flex align-middle justify-center py-2 hover:bg-neutral-700" onClick={() => setIsKeyboardShortcutsModalOpen(true)}>
+                        <button className="flex align-middle justify-center py-2 px-2 sm:px-0 hover:bg-neutral-700" onClick={() => setIsKeyboardShortcutsModalOpen(true)}>
                             <span className="sr-only">keyboard shortcuts</span>
                             ⌘   
                         </button>
                         <Link href="/workspace">
-                            <a className="flex align-middle justify-center py-2 hover:bg-neutral-700">
+                            <a className="flex align-middle justify-center py-2 px-2 sm:px-0 hover:bg-neutral-700">
                                 <span className="sr-only">workspace home</span>
                                 <HomeIcon className="h-6 w-6" />
                             </a>
@@ -76,7 +76,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
                         </nav>
                     )}
                 </div>
-                <div className="flex-1 overflow-scroll px-12">
+                <div className="flex-1 overflow-scroll px-2 sm:px-12">
                     {children}
                 </div>
             </div>

@@ -13,6 +13,8 @@ const nextConfig = {
             }
         ]
     },
+
+    trailingSlash: process.env.TRAILING_SLASH === 'true'
 }
 
 module.exports = nextConfig;

@@ -35,9 +35,9 @@ export default function LoginPage() {
         <div className="bg-neutral-100">
             <Script strategy="beforeInteractive" src="https://accounts.google.com/gsi/client"></Script>
             <div className="flex flex-col items-center justify-center h-screen">
-                <div className="mb-12" id="buttonDiv"></div>
                 <ShieldCheckIcon className="h-48 w-48 text-neutral-600 animate-pulse" />
                 <span className="text-3xl text-neutral-600">Authenticating...</span>
+                <div className="mt-12" id="buttonDiv"></div>
             </div>
         </div>
     )

@@ -1,31 +1,26 @@
 import { useState, useEffect, useMemo } from 'react';
 import debounce from 'lodash.debounce';
-import { useRouter } from "next/router";
 import { ExclamationTriangleIcon, TrashIcon } from '@heroicons/react/24/outline'
 
 import { button } from 'styles/classnames';
-import useGetEntry from "queries/useGetEntry";
 import useWriteToEntry from 'queries/useWriteToEntry';
 import Modal, { ModalTitle } from './Modal';
 import useDeleteEntry from 'queries/useDeleteEntry';
 import useUndeleteEntry from 'queries/useUndeleteEntry';
-import Loading from 'components/Loading';
 
-export default function EntryEditor() {
-    const router = useRouter();
-    const { id } = router.query;
-    const { data, isSuccess, isError, isLoading } = useGetEntry({ id: parseInt(id as string, 10) });
+interface EntryEditorProps {
+    id: number
+    initialText: string
+    createdAt: Date
+    updatedAt?: Date
+}
+
+export default function EntryEditor({ initialText, id, createdAt, updatedAt }: EntryEditorProps) {
     const writeToEntry = useWriteToEntry();
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
-    const [text, setText] = useState('');
-    const deleteEntry = useDeleteEntry();
-    const undeleteEntry = useUndeleteEntry();
-
-    useEffect(() => {
-        if (isSuccess) {
-            setText(data?.entry?.text);
-        }
-    }, [data, isSuccess]);
+    const [text, setText] = useState(initialText);
+    const deleteEntry = useDeleteEntry({ id });
+    const undeleteEntry = useUndeleteEntry({ id });
 
     useEffect(() => {
         if (deleteEntry.isSuccess) {
@@ -42,7 +37,7 @@ export default function EntryEditor() {
 
     const debouncedChangeHandler = useMemo(() => {
         return debounce((text) => {
-            writeToEntry.mutate({ id: parseInt(id as string, 10), text });
+            writeToEntry.mutate({ id, text });
         }, 1000, { maxWait: 10000 });
     }, [id]);
 
@@ -63,24 +58,8 @@ export default function EntryEditor() {
                     </div>
                 </div>
                 <div>
-                    <button onClick={() => undeleteEntry.mutate({ id: Number(id) })} className={button.secondary}>Undo</button>
+                    <button onClick={() => undeleteEntry.mutate()} className={button.secondary}>Undo</button>
                 </div>
-            </div>
-        )
-    }
-
-    if (isError) {
-        return (
-            <div className="flex py-12 h-full flex-col items-center lg:max-w-3xl mx-auto">
-                No Found
-            </div>
-        );
-    }
-
-    if (isLoading) {
-        return (
-            <div className="flex justify-center mt-12">
-                <Loading />
             </div>
         )
     }
@@ -98,7 +77,7 @@ export default function EntryEditor() {
                     {writeToEntry.isError && <div className="flex items-center"><div className="rounded-full bg-red-400 h-3 w-3 mr-1" />Error</div>}
                 </div>
                 <div>
-                    {`${data?.entry?.createdAt?.toDate().toLocaleString()}${data?.entry?.updatedAt ? ` • ${data?.entry?.updatedAt.toDate().toLocaleString()}` : ""}`}
+                    {`${createdAt.toLocaleString()}${updatedAt ? ` • ${updatedAt.toLocaleString()}` : ""}`}
                 </div>
             </div>
             <div className="w-full flex-1 relative">
@@ -131,14 +110,14 @@ export default function EntryEditor() {
                 <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                     <button
                         type="button"
-                        className={`${button.danger} ml-4`}
-                        onClick={() => deleteEntry.mutate({ id: Number(id) })}
+                        className={`${button.danger} w-full mb-2 sm:mb-0 sm:ml-4`}
+                        onClick={() => deleteEntry.mutate()}
                     >
                         Yes, delete
                     </button>
                     <button
                         type="button"
-                        className={`${button.secondary}`}
+                        className={`${button.secondary} w-full`}
                         onClick={() => setIsDeleteModalOpen(false)}
                     >
                         Nevermind

@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { ConnectServiceProviderContext } from './ConnectServiceProvider';
 
-export default function useDeleteEntry() {
+export default function useDeleteEntry({ id }: { id: number }) {
     const client = useContext(ConnectServiceProviderContext);
     const queryClient = useQueryClient();
     
@@ -11,7 +11,7 @@ export default function useDeleteEntry() {
     if (global.window) {
         token = localStorage.getItem('idToken');
     }
-    return useMutation<any, any, { id: number }>(["DeleteEntry"], ({ id }) => client.deleteEntry({ id }, {
+    return useMutation(["DeleteEntry", id], () => client.deleteEntry({ id }, {
         headers: {
             Authorization: `Bearer ${token}`,
         }
