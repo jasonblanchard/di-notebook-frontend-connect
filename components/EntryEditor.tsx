@@ -68,7 +68,7 @@ export default function EntryEditor({ initialText, id, createdAt, updatedAt }: E
 
     return (
         <div className="flex justify-around py-12 h-full mx-auto">
-            <div className="w-full sm:w-1/2 sm:mx-6">
+            <div className="w-full sm:w-1/2 sm:first-letter:mx-6">
                 <div className="flex mb-2 justify-between text-sm text-neutral-400">
                     <div>
                         {!writeToEntry.isError && (
