@@ -2,6 +2,7 @@ import ActiveLink from './ActiveLink';
 import useListEntries from 'queries/useListEntries';
 import React from 'react';
 import { button } from 'styles/classnames';
+import ReactMarkdown from 'react-markdown';
 
 export default function EntryListNav() {
     const { data, hasNextPage, isSuccess, fetchNextPage } = useListEntries({ pageSize: 25 });
@@ -20,7 +21,7 @@ export default function EntryListNav() {
                                         return (
                                             <div key={entry.id} className="w-full">
                                                 <ActiveLink href={`/workspace/${entry.id}`} activeClassName="bg-neutral-700">
-                                                    <a className="block px-2 py-2 bg-neutral-600 hover:bg-neutral-700 line-clamp-1 leading-8">{preview}</a>
+                                                    <a className="block px-2 py-2 bg-neutral-600 hover:bg-neutral-700 line-clamp-1 leading-8"><ReactMarkdown>{preview}</ReactMarkdown></a>
                                                 </ActiveLink>
                                             </div>
                                         )

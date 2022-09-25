@@ -9,7 +9,7 @@ const nextConfig = {
         return [
             {
                 source: '/notebook.v1.NotebookService/:path*',
-                destination: 'http://localhost:8080/notebook.v1.NotebookService/:path*',
+                destination: 'https://jasonblanchard-di-notebook-connect-wrxq4qx99qf5r49-8080.githubpreview.dev/notebook.v1.NotebookService/:path*',
             }
         ]
     },

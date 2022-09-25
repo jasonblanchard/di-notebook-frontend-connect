@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:remote": "next dev",
     "build": "next build && TRAILING_SLASH=true next export",
     "start": "next start",
     "lint": "next lint"
