@@ -1,10 +1,7 @@
-import {
-    QueryClient,
-    QueryClientProvider,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import ConnectServiceProvider from "queries/ConnectServiceProvider";
-import useProtectedRoute from 'pages/useProtectedRoute';
+import useProtectedRoute from "pages/useProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -13,15 +10,15 @@ import EntryZero from "components/EntryZero";
 import EntryListNav from "components/EntryListNav";
 
 export default function WorkspacePage() {
-    useProtectedRoute();
-    
-    return (
-        <QueryClientProvider client={queryClient}>
-            <ConnectServiceProvider>
-                <SidebarLayout nav={<EntryListNav />}>
-                    <EntryZero />
-                </SidebarLayout>
-            </ConnectServiceProvider>
-        </QueryClientProvider>
-    )
+  useProtectedRoute();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ConnectServiceProvider>
+        <SidebarLayout nav={<EntryListNav />}>
+          <EntryZero />
+        </SidebarLayout>
+      </ConnectServiceProvider>
+    </QueryClientProvider>
+  );
 }
