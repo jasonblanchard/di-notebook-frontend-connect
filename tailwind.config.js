@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Atkinson Hyperlegible'],
+      sans: ["Atkinson Hyperlegible"],
     },
     extend: {
       colors: {
@@ -37,7 +37,7 @@ module.exports = {
           800: colors.gray[800],
           900: colors.gray[900],
         },
-        'success-green': {
+        "success-green": {
           50: colors.green[50],
           100: colors.green[100],
           200: colors.green[200],
@@ -49,7 +49,7 @@ module.exports = {
           800: colors.green[800],
           900: colors.green[900],
         },
-        'danger-red': {
+        "danger-red": {
           50: colors.red[50],
           100: colors.red[100],
           200: colors.red[200],
@@ -61,12 +61,12 @@ module.exports = {
           800: colors.red[800],
           900: colors.red[900],
         },
-      }
+      },
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/line-clamp'),
-    require('@tailwindcss/typography'),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/typography"),
   ],
-}
+};
