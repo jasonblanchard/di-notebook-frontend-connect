@@ -11,7 +11,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="sm:overflow-hidden antialiased">
+      <body className="antialiased sm:overflow-hidden">
         <Main />
         <NextScript />
       </body>

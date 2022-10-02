@@ -58,18 +58,18 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
   useHotkeys("Meta+Escape", () => router.push("/workspace"));
 
   return (
-    <div className="h-screen sm:overflow-hidden bg-neutral-50">
-      <div className="h-2 bg-gradient-to-r to-primary-600 from-primary-300 absolute w-full top-0 z-10 transition-all" />
-      <div className="flex flex-col-reverse sm:flex-row h-full">
+    <div className="h-screen bg-neutral-50 sm:overflow-hidden">
+      <div className="absolute top-0 z-10 h-2 w-full bg-gradient-to-r from-primary-300 to-primary-600 transition-all" />
+      <div className="flex h-full flex-col-reverse sm:flex-row">
         <div
           className={`${
-            isCollapsed ? "sm:w-0 max-h-14" : "sm:w-60 max-h-60"
-          } sm:max-h-full transition-all border-r bg-neutral-600 relative`}
+            isCollapsed ? "max-h-14 sm:w-0" : "max-h-60 sm:w-60"
+          } relative border-r bg-neutral-600 transition-all sm:max-h-full`}
         >
-          <div className="flex sm:flex-col justify-around sm:absolute py-2 sm:w-8 bg-neutral-600 -right-8 top-6 text-neutral-300 sm:rounded-r-sm">
+          <div className="-right-8 top-6 flex justify-around bg-neutral-600 py-2 text-neutral-300 sm:absolute sm:w-8 sm:flex-col sm:rounded-r-sm">
             <button
               onClick={toggleCollapsed}
-              className="flex align-middle justify-center py-2 px-2 sm:px-0 hover:bg-neutral-700"
+              className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0"
             >
               <span className="sr-only">collapse sidebar</span>
               <ChevronLeftIcon
@@ -81,27 +81,27 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
               />
             </button>
             <button
-              className="flex align-middle justify-center py-2 px-2 sm:px-0 hover:bg-neutral-700"
+              className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0"
               onClick={() => beginNewEntry.mutate({ text: "" })}
             >
               <span className="sr-only">new entry</span>
               <PlusCircleIcon className="h-6 w-6" />
             </button>
             <button
-              className="flex align-middle justify-center py-2 px-2 sm:px-0 hover:bg-neutral-700"
+              className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0"
               onClick={() => setIsKeyboardShortcutsModalOpen(true)}
             >
               <span className="sr-only">keyboard shortcuts</span>⌘
             </button>
             <Link href="/workspace">
-              <a className="flex align-middle justify-center py-2 px-2 sm:px-0 hover:bg-neutral-700">
+              <a className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0">
                 <span className="sr-only">workspace home</span>
                 <HomeIcon className="h-6 w-6" />
               </a>
             </Link>
           </div>
           {!isCollapsed && (
-            <nav className="text-neutral-300 overflow-scroll h-full">{nav}</nav>
+            <nav className="h-full overflow-scroll text-neutral-300">{nav}</nav>
           )}
         </div>
         <div className="flex-1 overflow-scroll px-2 sm:px-12">{children}</div>
@@ -110,21 +110,21 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
         isOpen={isKeyboardShortcutsModalOpen}
         onRequestClose={() => setIsKeyboardShortcutsModalOpen(false)}
       >
-        <div className="max-w-xs mx-auto">
+        <div className="mx-auto max-w-xs">
           <ModalTitle as="h2" className="text-m text-neutral-600">
             Keyboard Shortcuts
           </ModalTitle>
           <div className="py-6">
-            <div className="flex justify-between items-center mb-4">
-              <code className="text-sm bg-neutral-200 p-1">command + \</code>{" "}
+            <div className="mb-4 flex items-center justify-between">
+              <code className="bg-neutral-200 p-1 text-sm">command + \</code>{" "}
               toggle sidebar
             </div>
-            <div className="flex justify-between items-center mb-4">
-              <code className="text-sm bg-neutral-200 p-1">command + /</code>{" "}
+            <div className="mb-4 flex items-center justify-between">
+              <code className="bg-neutral-200 p-1 text-sm">command + /</code>{" "}
               open this dialog
             </div>
-            <div className="flex justify-between items-center mb-4">
-              <code className="text-sm bg-neutral-200 p-1">command + Esc</code>{" "}
+            <div className="mb-4 flex items-center justify-between">
+              <code className="bg-neutral-200 p-1 text-sm">command + Esc</code>{" "}
               return to home page
             </div>
           </div>

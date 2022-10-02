@@ -62,15 +62,15 @@ export default function EntryEditor({
 
   if (deleteEntry.isSuccess && !undeleteEntry.isSuccess) {
     return (
-      <div className="flex py-12 h-full flex-col items-center lg:max-w-3xl mx-auto">
-        <div className="sm:flex sm:items-center mb-4">
+      <div className="mx-auto flex h-full flex-col items-center py-12 lg:max-w-3xl">
+        <div className="mb-4 sm:flex sm:items-center">
           <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-neutral-200 sm:mx-0 sm:h-10 sm:w-10">
             <TrashIcon
               className="h-6 w-6 text-neutral-600"
               aria-hidden="true"
             />
           </div>
-          <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left text-neutral-700">
+          <div className="mt-3 text-center text-neutral-700 sm:mt-0 sm:ml-4 sm:text-left">
             The entry has been deleted
           </div>
         </div>
@@ -87,25 +87,25 @@ export default function EntryEditor({
   }
 
   return (
-    <div className="flex justify-around py-12 h-full mx-auto">
+    <div className="mx-auto flex h-full justify-around py-12">
       <div className="w-full sm:w-1/2 sm:first-letter:mx-6">
-        <div className="flex mb-2 justify-between text-sm text-neutral-400">
+        <div className="mb-2 flex justify-between text-sm text-neutral-400">
           <div>
             {!writeToEntry.isError &&
               (writeToEntry.isLoading ? (
                 <div className="flex items-center">
-                  <div className="rounded-full bg-yellow-400 h-3 w-3 mr-1" />
+                  <div className="mr-1 h-3 w-3 rounded-full bg-yellow-400" />
                   Saving...
                 </div>
               ) : (
                 <div className="flex items-center">
-                  <div className="rounded-full bg-green-400 h-3 w-3 mr-1" />
+                  <div className="mr-1 h-3 w-3 rounded-full bg-green-400" />
                   Saved
                 </div>
               ))}
             {writeToEntry.isError && (
               <div className="flex items-center">
-                <div className="rounded-full bg-red-400 h-3 w-3 mr-1" />
+                <div className="mr-1 h-3 w-3 rounded-full bg-red-400" />
                 Error
               </div>
             )}
@@ -116,10 +116,10 @@ export default function EntryEditor({
             }`}
           </div>
         </div>
-        <div className="w-full h-full flex-1 relative">
+        <div className="relative h-full w-full flex-1">
           <textarea
             autoFocus
-            className="w-full text-lg absolute top-0 bottom-0 bg-neutral-100 border resize-none border-neutral-200 rounded-0 p-4 shadow text-neutral-700 leading-relaxed border-none focus:ring-2 focus:ring-primary-400 placeholder:text-neutral-300"
+            className="rounded-0 absolute top-0 bottom-0 w-full resize-none border border-none border-neutral-200 bg-neutral-100 p-4 text-lg leading-relaxed text-neutral-700 shadow placeholder:text-neutral-300 focus:ring-2 focus:ring-primary-400"
             value={text}
             onChange={handleChange}
           />
@@ -151,14 +151,14 @@ export default function EntryEditor({
                 Delete Entry
               </ModalTitle>
               <div className="mt-2">
-                <p className="text-sm text-gray-500 py-4">Are you sure?</p>
+                <p className="py-4 text-sm text-gray-500">Are you sure?</p>
               </div>
             </div>
           </div>
           <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
             <button
               type="button"
-              className={`${button.danger} w-full mb-2 sm:mb-0 sm:ml-4`}
+              className={`${button.danger} mb-2 w-full sm:mb-0 sm:ml-4`}
               onClick={() => deleteEntry.mutate()}
             >
               Yes, delete
@@ -173,7 +173,7 @@ export default function EntryEditor({
           </div>
         </Modal>
       </div>
-      <div className="hidden sm:block w-1/2 mx-6 mt-5 overflow-scroll h-full prose">
+      <div className="prose mx-6 mt-5 hidden h-full w-1/2 overflow-scroll sm:block">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
       </div>
     </div>

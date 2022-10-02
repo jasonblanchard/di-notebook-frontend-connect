@@ -13,7 +13,7 @@ export default function Workspace() {
 
   if (isError) {
     return (
-      <div className="flex py-12 h-full flex-col items-center lg:max-w-3xl mx-auto">
+      <div className="mx-auto flex h-full flex-col items-center py-12 lg:max-w-3xl">
         No Found
       </div>
     );
@@ -21,7 +21,7 @@ export default function Workspace() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center mt-12">
+      <div className="mt-12 flex justify-center">
         <Loading />
       </div>
     );

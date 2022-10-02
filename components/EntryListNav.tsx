@@ -27,7 +27,7 @@ export default function EntryListNav() {
                           href={`/workspace/${entry.id}`}
                           activeClassName="bg-neutral-700"
                         >
-                          <a className="block px-2 py-2 bg-neutral-600 hover:bg-neutral-700 line-clamp-1 leading-8">
+                          <a className="block bg-neutral-600 px-2 py-2 leading-8 line-clamp-1 hover:bg-neutral-700">
                             <ReactMarkdown>{preview}</ReactMarkdown>
                           </a>
                         </ActiveLink>
@@ -38,14 +38,14 @@ export default function EntryListNav() {
               );
             })}
             {data.pages[0].entries?.length === 0 && (
-              <div className="block px-2 py-2 bg-neutral-600">
+              <div className="block bg-neutral-600 px-2 py-2">
                 No entries yet
               </div>
             )}
           </>
         )}
         {hasNextPage && (
-          <div className="flex justify-center mt-2 mb-10">
+          <div className="mt-2 mb-10 flex justify-center">
             <button
               className={button.secondary}
               onClick={() => fetchNextPage()}
