@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "UPSTREAM_HOST=localhost:8080 next dev",
     "dev:remote": "UPSTREAM_HOST=https://di8.blanktech.net next dev",
     "build": "next build && TRAILING_SLASH=true next export",
     "start": "next start",

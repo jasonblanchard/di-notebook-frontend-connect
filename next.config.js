@@ -7,9 +7,7 @@ const nextConfig = {
 
   async rewrites() {
     const upstreamHost =
-      process.env.UPSTREAM_HOST === ""
-        ? "localhost:8080"
-        : process.env.UPSTREAM_HOST;
+      process.env.UPSTREAM_HOST === undefined ? "" : process.env.UPSTREAM_HOST;
 
     return [
       {
