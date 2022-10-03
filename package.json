@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:remote": "next dev",
+    "dev:remote": "UPSTREAM_HOST=https://di8.blanktech.net next dev",
     "build": "next build && TRAILING_SLASH=true next export",
     "start": "next start",
     "lint": "next lint",

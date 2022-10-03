@@ -4,6 +4,7 @@ import {
   ChevronLeftIcon,
   PlusCircleIcon,
   HomeIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -57,6 +58,8 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
   );
   useHotkeys("Meta+Escape", () => router.push("/workspace"));
 
+  useHotkeys("Meta+Shift+F", () => router.push("/search"));
+
   return (
     <div className="h-screen bg-neutral-50 sm:overflow-hidden">
       <div className="absolute top-0 z-10 h-2 w-full bg-gradient-to-r from-primary-300 to-primary-600 transition-all" />
@@ -99,6 +102,12 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
                 <HomeIcon className="h-6 w-6" />
               </a>
             </Link>
+            <Link href="/search">
+              <a className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0">
+                <span className="sr-only">search</span>
+                <MagnifyingGlassIcon className="h-6 w-6" />
+              </a>
+            </Link>
           </div>
           {!isCollapsed && (
             <nav className="h-full overflow-scroll text-neutral-300">{nav}</nav>
@@ -126,6 +135,12 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
             <div className="mb-4 flex items-center justify-between">
               <code className="bg-neutral-200 p-1 text-sm">command + Esc</code>{" "}
               return to home page
+            </div>
+            <div className="mb-4 flex items-center justify-between">
+              <code className="bg-neutral-200 p-1 text-sm">
+                command + Shift + F
+              </code>{" "}
+              search
             </div>
           </div>
         </div>
