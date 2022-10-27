@@ -58,7 +58,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
   );
   useHotkeys("Meta+Escape", () => router.push("/workspace"));
 
-  useHotkeys("Meta+Shift+F", () => router.push("/search"));
+  useHotkeys("Meta+k", () => router.push("/search"));
 
   return (
     <div className="h-screen bg-neutral-50 sm:overflow-hidden">
@@ -72,7 +72,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
           <div className="-right-8 top-6 flex justify-around bg-neutral-600 py-2 text-neutral-300 sm:absolute sm:w-8 sm:flex-col sm:rounded-r-sm">
             <button
               onClick={toggleCollapsed}
-              className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0"
+              className="flex justify-center rounded py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0"
             >
               <span className="sr-only">collapse sidebar</span>
               <ChevronLeftIcon
@@ -137,9 +137,7 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
               return to home page
             </div>
             <div className="mb-4 flex items-center justify-between">
-              <code className="bg-neutral-200 p-1 text-sm">
-                command + Shift + F
-              </code>{" "}
+              <code className="bg-neutral-200 p-1 text-sm">command + k</code>{" "}
               search
             </div>
           </div>

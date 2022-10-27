@@ -62,6 +62,7 @@ export default function Search() {
               <button
                 className={`${button.secondary} flex items-center`}
                 onClick={() => fetchNextPage()}
+                disabled={isRefetching}
               >
                 keep searching
                 {isRefetching && (
