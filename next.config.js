@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
 
-  // basePath: '/Users/jason/projects/di-notebook-frontend-connect/out',
   assetPrefix: process.env.ASSET_PREFIX,
 
   async rewrites() {
@@ -17,7 +16,9 @@ const nextConfig = {
     ];
   },
 
-  trailingSlash: process.env.TRAILING_SLASH === "true",
+  experimental: {
+    appDir: true,
+  },
 };
 
 module.exports = nextConfig;

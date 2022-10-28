@@ -35,9 +35,5 @@ export default function SearchPreview({ query, text, id }: SearchPreviewProps) {
     }
   }, []);
 
-  return (
-    <Link href={`/workspace/${id}`}>
-      <a>{result}</a>
-    </Link>
-  );
+  return <Link href={`/workspace/${id}`}>{result}</Link>;
 }

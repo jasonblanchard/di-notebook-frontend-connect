@@ -96,17 +96,19 @@ export default function SidebarLayout({ children, nav }: SidebarLayoutProps) {
             >
               <span className="sr-only">keyboard shortcuts</span>⌘
             </button>
-            <Link href="/workspace">
-              <a className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0">
-                <span className="sr-only">workspace home</span>
-                <HomeIcon className="h-6 w-6" />
-              </a>
+            <Link
+              href="/workspace"
+              className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0"
+            >
+              <span className="sr-only">workspace home</span>
+              <HomeIcon className="h-6 w-6" />
             </Link>
-            <Link href="/search">
-              <a className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0">
-                <span className="sr-only">search</span>
-                <MagnifyingGlassIcon className="h-6 w-6" />
-              </a>
+            <Link
+              href="/search"
+              className="flex justify-center py-2 px-2 align-middle hover:bg-neutral-700 sm:px-0"
+            >
+              <span className="sr-only">search</span>
+              <MagnifyingGlassIcon className="h-6 w-6" />
             </Link>
           </div>
           {!isCollapsed && (
